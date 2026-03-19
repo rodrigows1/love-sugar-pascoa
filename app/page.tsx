@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 export default function PascoaPropositoLoveSugarLanding() {
   const WHATSAPP_NUMBER = "554721257550"; //  WhatsApp
 
@@ -84,10 +88,10 @@ export default function PascoaPropositoLoveSugarLanding() {
     "Clássicos de Páscoa",
   ];
 
-  const [selectedCategory, setSelectedCategory] = React.useState("Todos");
-  const [cart, setCart] = React.useState([]);
-  const [cartOpen, setCartOpen] = React.useState(false);
-  const [customer, setCustomer] = React.useState({
+  const [selectedCategory, setSelectedCategory] = useState("Todos");
+const [cart, setCart] = useState([]);
+const [cartOpen, setCartOpen] = useState(false);
+const [customer, setCustomer] = useState({
     name: "",
     city: "Balneário Camboriú",
     date: "",
