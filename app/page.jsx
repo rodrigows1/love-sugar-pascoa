@@ -50,12 +50,12 @@ export default function PascoaPropositoLoveSugarLanding() {
     { name: "Colomba de Pistache", price: 99, category: "Clássicos de Páscoa", image: "/colomba-pistache.png" },
     { name: "Sobremesa Pão de Mel na Taça", price: 170, category: "Sobremesas", image: "/taca-sobremesa.png" },
     { name: "Croc-Croc Love Sugar", price: 29.9, category: "Novidades", image: "/croc-croc.png" },
-    { name: "Lata com 2 Pães de Mel", price: 49.9, category: "Presentear", image: "/lata-paes-mel.png" },
-    { name: "Brownie Funcional", price: 22.9, category: "Linha Saudável", image: "/brownie-funcional.png" },
-    { name: "Bites de Pão de Mel", price: 38.9, category: "Clássicos Love Sugar", image: "/bites-pao-mel.png" },
-    { name: "Toffee Caramel", price: 16.9, category: "Clássicos Love Sugar", image: "/toffee-caramel.png" },
-    { name: "Bolinho de Pão de Mel Desconstruído", price: 34.9, category: "Clássicos Love Sugar", image: "/bolinho-desconstruido.png" },
-    { name: "Bolo de Pão de Mel Gourmet", price: 170, category: "Sobremesas", image: "/bolo-pao-mel.png" },
+    { name: "Lata com 2 Pães de Mel", price: 49.9, category: "Presentear", image: "/lata-paes-mel.jpg" },
+    { name: "Brownie Funcional", price: 22.9, category: "Linha Saudável", image: "/brownie-funcional.jpg" },
+    { name: "Bites de Pão de Mel", price: 38.9, category: "Clássicos Love Sugar", image: "/bites-pao-mel.jpg" },
+    { name: "Toffee Caramel", price: 16.9, category: "Clássicos Love Sugar", image: "/toffee-caramel.jpg" },
+    { name: "Bolinho de Pão de Mel Desconstruído", price: 34.9, category: "Clássicos Love Sugar", image: "/bolinho-desconstruido.jpg" },
+    { name: "Bolo de Pão de Mel Gourmet", price: 170, category: "Sobremesas", image: "/bolo-pao-mel.jpg" },
   ];
 
   const categories = [
