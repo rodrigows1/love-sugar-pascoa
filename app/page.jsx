@@ -241,7 +241,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           <div className="relative z-10 flex items-center justify-center">
             <div className="w-full overflow-hidden rounded-[2.5rem] border border-[#ddd3ca] bg-white shadow-[0_25px_80px_rgba(35,31,32,0.12)]">
               <img
-                src="/box-pascoa-hero.jpg"
+                src="/box-pascoa.png"
                 alt="Box Páscoa de Propósito Love Sugar"
                 className="h-[330px] w-full object-cover sm:h-[500px]"
               />
@@ -343,7 +343,7 @@ export default function PascoaPropositoLoveSugarLanding() {
                 className="overflow-hidden rounded-[1.8rem] border border-[#e5dbd1] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <img
-                  src={product.image || "/box-pascoa-hero.jpg"}
+                  src={product.image || "/box-pascoa.png"}
                   alt={product.name}
                   className="h-48 w-full object-cover"
                 />
