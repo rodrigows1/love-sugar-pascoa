@@ -5,257 +5,318 @@ import React, { useMemo, useState } from "react";
 export default function PascoaPropositoLoveSugarLanding() {
   const WHATSAPP_NUMBER = "554721257550";
 
-  const heroImage = "/hero-pascoa.jpg";
+  const heroImage = "/naked-pascoa.jpg";
 
-  const easterFavorites = [
+  const sections = [
     {
-      id: "box-proposito",
-      name: "Box Páscoa de Propósito",
-      price: 199,
-      badge: "Presente de Propósito",
+      id: "queridinhos",
+      title: "Os Queridinhos da Páscoa",
       description:
-        "Uma experiência criada para transformar a Páscoa em um momento de fé, sabor e significado.",
-      includes: [
-        "01 Bolinho de Pão de Mel Gourmet desconstruído",
-        "02 Pães de Mel Gourmet clássicos",
-        "01 Toffee Caramel",
-        "01 Croc-Croc Love Sugar de amendoim caramelizado com açúcar mascavo",
-        "01 Brownie Funcional",
+        "Os protagonistas da campanha, escolhidos para converter mais e encantar logo no primeiro olhar.",
+      products: [
+        {
+          id: "box-proposito",
+          name: "Box Páscoa de Propósito",
+          price: 199,
+          badge: "Presente de Propósito",
+          description:
+            "Uma experiência criada para transformar a Páscoa em um momento de fé, sabor e significado.",
+          includes: [
+            "01 Bolinho de Pão de Mel Gourmet desconstruído",
+            "02 Pães de Mel Gourmet clássicos",
+            "01 Toffee Caramel",
+            "01 Croc-Croc Love Sugar de amendoim caramelizado com açúcar mascavo",
+            "01 Brownie Funcional",
+          ],
+          image: "/box-pascoa.jpg",
+          imageAlt: "Box Páscoa de Propósito Love Sugar",
+        },
+        {
+          id: "naked-cake",
+          name: "Naked Cake",
+          price: 134,
+          badge: "Queridinho da Páscoa",
+          description:
+            "Camadas macias, recheio cremoso e um sabor simplesmente inesquecível.",
+          image: "/naked-pascoa.jpg",
+          imageAlt: "Naked Cake Love Sugar",
+        },
+        {
+          id: "taca",
+          name: "Pão de Mel na Taça",
+          price: 170,
+          badge: "Sobremesa Memorável",
+          description:
+            "Camadas de massa de pão de mel macia e aromática, doce de leite cremoso e pedacinhos de chocolate.",
+          image: "/taca-sobremesa.jpg",
+          imageAlt: "Pão de Mel na Taça Love Sugar",
+        },
       ],
-      image: "/box-pascoa.png",
-      imageAlt: "Box Páscoa de Propósito Love Sugar",
     },
     {
-      id: "naked-cake",
-      name: "Naked Cake",
-      price: 134,
-      badge: "Queridinho da Páscoa",
+      id: "novidades",
+      title: "Novidades Love Sugar",
       description:
-        "Camadas macias, recheio cremoso e um sabor simplesmente inesquecível.",
-      image: "/naked-pascoa.jpg",
-      imageAlt: "Naked Cake Love Sugar",
+        "Três novidades com alto potencial de impulso, presente e complemento de compra.",
+      products: [
+        {
+          id: "croc-croc",
+          name: "Croc-Croc Love Sugar",
+          price: 29.9,
+          badge: "Irresistível",
+          description:
+            "Amendoim caramelizado com açúcar mascavo: crocante, intenso e viciante.",
+          image: "/croc-croc.jpg",
+          imageAlt: "Croc-Croc Love Sugar",
+        },
+        {
+          id: "bocadito",
+          name: "Bocadito Doce de Leite",
+          price: 11.9,
+          badge: "Delicioso",
+          description:
+            "Suavidade do doce de leite com textura delicada e envolvente.",
+          image: "/bocadito.jpg",
+          imageAlt: "Bocadito Doce de Leite",
+        },
+        {
+          id: "toffee",
+          name: "Toffee Caramel",
+          price: 16.9,
+          badge: "Queridinho",
+          description:
+            "Base macia, recheio cremoso e intenso de caramelo, finalizado com chocolate.",
+          image: "/toffee-caramel.jpg",
+          imageAlt: "Toffee Caramel",
+        },
+      ],
     },
     {
-      id: "taca",
-      name: "Pão de Mel na Taça",
-      price: 170,
-      badge: "Sobremesa Memorável",
+      id: "classicos",
+      title: "Clássicos Love Sugar",
       description:
-        "Camadas de massa de pão de mel macia e aromática, doce de leite cremoso e pedacinhos de chocolate.",
-      image: "/taca-sobremesa.png",
-      imageAlt: "Pão de Mel na Taça Love Sugar",
+        "Os sabores que carregam a assinatura da Love Sugar e fazem parte da nossa história.",
+      products: [
+        {
+          id: "pao-mel-classico",
+          name: "Pão de Mel Clássico",
+          price: 18.9,
+          description: "Nosso clássico mais amado, intenso e memorável.",
+          image: "/pao-mel-classico.jpg",
+          imageAlt: "Pão de Mel Clássico",
+        },
+        {
+          id: "pao-mel-mini",
+          name: "Pão de Mel Mini",
+          price: 13.9,
+          description:
+            "Versão delicada do clássico Love Sugar, perfeita para presentear.",
+          image: "/mini-pao-mel.jpg",
+          imageAlt: "Pão de Mel Mini",
+        },
+        {
+          id: "bolinho-desconstruido",
+          name: "Bolinho de Pão de Mel Desconstruído",
+          price: 34.9,
+          description:
+            "Massa de pão de mel com recheio de doce de leite e calda de chocolate belga.",
+          image: "/bolinho-desconstruido.jpg",
+          imageAlt: "Bolinho de Pão de Mel Desconstruído",
+        },
+      ],
     },
-  ];
-
-  const noveltyProducts = [
     {
-      id: "croc-croc",
-      name: "Croc-Croc Love Sugar",
-      price: 29.9,
-      category: "Novidades Love Sugar",
-      image: "/croc-croc.png",
+      id: "especiais",
+      title: "Especiais de Páscoa",
       description:
-        "Amendoim caramelizado com açúcar mascavo: crocante, intenso e viciante.",
-      badge: "Irresistível",
+        "Sabores sazonais pensados para tornar a data ainda mais memorável.",
+      products: [
+        {
+          id: "colomba-pistache",
+          name: "Colomba de Pistache",
+          price: 99,
+          description:
+            "Macia, aromática e recheada com o mais puro creme de pistache.",
+          image: "/colomba-pistache.jpg",
+          imageAlt: "Colomba de Pistache",
+        },
+        {
+          id: "colomba-nozes",
+          name: "Colomba de Nozes",
+          price: 99,
+          description:
+            "Massa macia, recheio cremoso e pedaços selecionados de nozes.",
+          image: "/colomba-nozes.jpg",
+          imageAlt: "Colomba de Nozes",
+        },
+      ],
     },
     {
-      id: "bocadito",
-      name: "Bocadito Doce de Leite",
-      price: 11.9,
-      category: "Novidades Love Sugar",
-      image: "/bocadito.jpg",
+      id: "pacotinhos",
+      title: "Nossos Pacotinhos",
       description:
-        "Suavidade do doce de leite com textura delicada e envolvente.",
-      badge: "Delicioso",
+        "Mimos perfeitos para presentear, complementar pedidos e adoçar pequenos momentos.",
+      products: [
+        {
+          id: "petit-four",
+          name: "Petit Four Baunilha",
+          price: 38.9,
+          description:
+            "Biscoito leve, amanteigado e delicadamente aromático.",
+          image: "/petit-four.jpg",
+          imageAlt: "Petit Four Baunilha",
+        },
+        {
+          id: "ten-bites",
+          name: "Ten Bites",
+          price: 38.9,
+          description:
+            "Pequenos pedaços de pão de mel mergulhados em chocolate.",
+          image: "/bites-pao-mel.jpg",
+          imageAlt: "Ten Bites",
+        },
+        {
+          id: "casadinho-goiaba",
+          name: "Casadinho de Goiaba",
+          price: 38.9,
+          description:
+            "Massa fina e crocante recheada com goiabada cremosa.",
+          image: "/casadinho-goiaba.jpg",
+          imageAlt: "Casadinho de Goiaba",
+        },
+        {
+          id: "crocante-amendoim",
+          name: "Crocante de Amendoim",
+          price: 38.9,
+          description:
+            "Crocância marcante e sabor envolvente para pequenos momentos especiais.",
+          image: "/croc-croc.jpg",
+          imageAlt: "Crocante de Amendoim",
+        },
+      ],
     },
     {
-      id: "toffee",
-      name: "Toffee Caramel",
-      price: 16.9,
-      category: "Novidades Love Sugar",
-      image: "/toffee-caramel.jpg",
+      id: "paes-de-mel",
+      title: "Pães de Mel",
       description:
-        "Base macia, recheio cremoso e intenso de caramelo, finalizado com chocolate.",
-      badge: "Queridinho",
+        "Caixas e latas presenteáveis com o clássico mais amado da Love Sugar.",
+      products: [
+        {
+          id: "lata-pascoa",
+          name: "Lata de Páscoa (2 Pães de Mel Clássicos)",
+          price: 49.9,
+          description:
+            "Dois pães de mel artesanais em uma lata elegante e presenteável.",
+          image: "/lata-paes-mel.jpg",
+          imageAlt: "Lata de Páscoa",
+        },
+        {
+          id: "caixa-3-paes",
+          name: "Caixa com 3 Pães de Mel Clássicos",
+          price: 63.9,
+          description:
+            "Caixa com 3 unidades do Pão de Mel Gourmet clássico.",
+          image: "/caixa-paes-mel.jpg",
+          imageAlt: "Caixa com 3 Pães de Mel",
+        },
+        {
+          id: "caixa-4-mini",
+          name: "Caixa com 4 Mini Pães de Mel",
+          price: 59.9,
+          description: "Caixa com 4 mini pães de mel gourmet.",
+          image: "/caixa-mini-paes-mel.jpg",
+          imageAlt: "Caixa com 4 Mini Pães de Mel",
+        },
+        {
+          id: "caixa-4-paes",
+          name: "Caixa com 4 Pães de Mel Clássicos",
+          price: 79.9,
+          description:
+            "Caixa com 4 unidades do Pão de Mel Gourmet clássico.",
+          image: "/caixa-paes-mel.jpg",
+          imageAlt: "Caixa com 4 Pães de Mel",
+        },
+        {
+          id: "caixa-5-mini",
+          name: "Caixa com 5 Mini Pães de Mel",
+          price: 74.9,
+          description: "Caixa com 5 mini pães de mel gourmet.",
+          image: "/caixa-mini-paes-mel.jpg",
+          imageAlt: "Caixa com 5 Mini Pães de Mel",
+        },
+        {
+          id: "caixa-6-paes",
+          name: "Caixa com 6 Pães de Mel Clássicos",
+          price: 117.9,
+          description:
+            "Caixa com 6 unidades do Pão de Mel Gourmet clássico.",
+          image: "/caixa-paes-mel.jpg",
+          imageAlt: "Caixa com 6 Pães de Mel",
+        },
+        {
+          id: "caixa-8-mini",
+          name: "Caixa com 8 Mini Pães de Mel",
+          price: 114.9,
+          description: "Caixa com 8 mini pães de mel gourmet.",
+          image: "/caixa-mini-paes-mel.jpg",
+          imageAlt: "Caixa com 8 Mini Pães de Mel",
+        },
+      ],
     },
-  ];
-
-  const catalogProducts = [
     {
-      name: "Pão de Mel Clássico",
-      price: 18.9,
-      category: "Clássicos Love Sugar",
-      image: "/pao-mel-classico.jpg",
-      description: "Nosso clássico mais amado, intenso e memorável.",
-    },
-    {
-      name: "Pão de Mel Mini",
-      price: 13.9,
-      category: "Clássicos Love Sugar",
-      image: "/mini-pao-mel.jpg",
+      id: "sem-acucar",
+      title: "Sem Açúcar",
       description:
-        "Versão delicada do clássico Love Sugar, perfeita para presentear.",
-    },
-    {
-      name: "Bolinho de Pão de Mel Desconstruído",
-      price: 34.9,
-      category: "Clássicos Love Sugar",
-      image: "/bolinho-desconstruido.jpg",
-      description:
-        "Massa de pão de mel com recheio de doce de leite e calda de chocolate belga.",
-    },
-
-    {
-      name: "Colomba de Pistache",
-      price: 99,
-      category: "Especiais de Páscoa",
-      image: "/colomba-pistache.png",
-      description:
-        "Macia, aromática e recheada com o mais puro creme de pistache.",
-    },
-    {
-      name: "Colomba de Nozes",
-      price: 99,
-      category: "Especiais de Páscoa",
-      image: "/colomba-nozes.jpg",
-      description:
-        "Massa macia, recheio cremoso e pedaços selecionados de nozes.",
-    },
-
-    {
-      name: "Petit Four Baunilha",
-      price: 38.9,
-      category: "Nossos Pacotinhos",
-      image: "/petit-four.jpg",
-      description: "Biscoito leve, amanteigado e delicadamente aromático.",
-    },
-    {
-      name: "Ten Bites",
-      price: 38.9,
-      category: "Nossos Pacotinhos",
-      image: "/bites-pao-mel.jpg",
-      description:
-        "Pequenos pedaços de pão de mel mergulhados em chocolate.",
-    },
-    {
-      name: "Casadinho de Goiaba",
-      price: 38.9,
-      category: "Nossos Pacotinhos",
-      image: "/casadinho-goiaba.jpg",
-      description:
-        "Massa fina e crocante recheada com goiabada cremosa.",
-    },
-    {
-      name: "Crocante de Amendoim",
-      price: 38.9,
-      category: "Nossos Pacotinhos",
-      image: "/croc-croc.png",
-      description:
-        "Crocância marcante e sabor envolvente para pequenos momentos especiais.",
-    },
-    {
-      name: "Mini Palmier",
-      price: 36.9,
-      category: "Nossos Pacotinhos",
-      image: "/mini_palmier.jpg",
-      description:
-        "Camadas finas de massa folhada dourada e crocante, com doçura na medida certa.",
-    },
-
-    {
-      name: "Lata de Páscoa (2 Pães de Mel Clássicos)",
-      price: 49.9,
-      category: "Pães de Mel",
-      image: "/lata-paes-mel.jpg",
-      description:
-        "Dois pães de mel artesanais em uma lata elegante e presenteável.",
-    },
-    {
-      name: "Caixa com 3 Pães de Mel Clássicos",
-      price: 63.9,
-      category: "Pães de Mel",
-      image: "/caixa-paes-mel.jpg",
-      description:
-        "Caixa com 3 unidades do Pão de Mel Gourmet clássico.",
-    },
-    {
-      name: "Caixa com 4 Mini Pães de Mel",
-      price: 59.9,
-      category: "Pães de Mel",
-      image: "/caixa-mini-paes-mel.jpg",
-      description: "Caixa com 4 mini pães de mel gourmet.",
-    },
-    {
-      name: "Caixa com 4 Pães de Mel Clássicos",
-      price: 79.9,
-      category: "Pães de Mel",
-      image: "/caixa-paes-mel.jpg",
-      description:
-        "Caixa com 4 unidades do Pão de Mel Gourmet clássico.",
-    },
-    {
-      name: "Caixa com 5 Mini Pães de Mel",
-      price: 74.9,
-      category: "Pães de Mel",
-      image: "/caixa-mini-paes-mel.jpg",
-      description: "Caixa com 5 mini pães de mel gourmet.",
-    },
-    {
-      name: "Caixa com 6 Pães de Mel Clássicos",
-      price: 117.9,
-      category: "Pães de Mel",
-      image: "/caixa-paes-mel.jpg",
-      description:
-        "Caixa com 6 unidades do Pão de Mel Gourmet clássico.",
-    },
-    {
-      name: "Caixa com 8 Mini Pães de Mel",
-      price: 114.9,
-      category: "Pães de Mel",
-      image: "/caixa-mini-paes-mel.jpg",
-      description: "Caixa com 8 mini pães de mel gourmet.",
-    },
-
-    {
-      name: "Chocolate 45%",
-      price: 48.9,
-      category: "Sem Açúcar",
-      image: "/chocolates_semacucar.jpg",
-      description:
-        "Chocolate com sabor intenso e sofisticado para quem busca equilíbrio.",
-      badge: "Sem Açúcar",
-    },
-    {
-      name: "Chocolate Vegano 70%",
-      price: 48.9,
-      category: "Sem Açúcar",
-      image: "/chocolates_semacucar.jpg",
-      description:
-        "Chocolate vegano 70% cacau com personalidade e profundidade.",
-      badge: "Sem Açúcar",
-    },
-    {
-      name: "Chocolate Branco Vegano ao leite de côco",
-      price: 50.9,
-      category: "Sem Açúcar",
-      image: "/chocolates_semacucar.jpg",
-      description:
-        "Versão vegana delicada e surpreendente, com leite de côco.",
-      badge: "Sem Açúcar",
-    },
-    {
-      name: "Drágeas Veganas 70% com Cranberry",
-      price: 50.9,
-      category: "Sem Açúcar",
-      image: "/chocolates_semacucar.jpg",
-      description:
-        "Drágeas veganas com cranberry e chocolate 70%, intensas e elegantes.",
-      badge: "Sem Açúcar",
+        "Opções especiais para quem busca equilíbrio sem abrir mão da experiência Love Sugar.",
+      products: [
+        {
+          id: "chocolate-45",
+          name: "Chocolate 45%",
+          price: 48.9,
+          badge: "Sem Açúcar",
+          description:
+            "Chocolate com sabor intenso e sofisticado para quem busca equilíbrio.",
+          image: "/chocolates_semacucar.jpg",
+          imageAlt: "Chocolate 45%",
+        },
+        {
+          id: "chocolate-vegano-70",
+          name: "Chocolate Vegano 70%",
+          price: 48.9,
+          badge: "Sem Açúcar",
+          description:
+            "Chocolate vegano 70% cacau com personalidade e profundidade.",
+          image: "/chocolates_semacucar.jpg",
+          imageAlt: "Chocolate Vegano 70%",
+        },
+        {
+          id: "chocolate-branco-vegano",
+          name: "Chocolate Branco Vegano ao leite de côco",
+          price: 50.9,
+          badge: "Sem Açúcar",
+          description:
+            "Versão vegana delicada e surpreendente, com leite de côco.",
+          image: "/chocolates_semacucar.jpg",
+          imageAlt: "Chocolate Branco Vegano ao leite de côco",
+        },
+        {
+          id: "drageas-cranberry",
+          name: "Drágeas Veganas 70% com Cranberry",
+          price: 50.9,
+          badge: "Sem Açúcar",
+          description:
+            "Drágeas veganas com cranberry e chocolate 70%, intensas e elegantes.",
+          image: "/chocolates_semacucar.jpg",
+          imageAlt: "Drágeas Veganas 70% com Cranberry",
+        },
+      ],
     },
   ];
 
   const categories = [
     "Todos",
+    "Os Queridinhos da Páscoa",
+    "Novidades Love Sugar",
     "Clássicos Love Sugar",
     "Especiais de Páscoa",
     "Nossos Pacotinhos",
@@ -306,18 +367,16 @@ export default function PascoaPropositoLoveSugarLanding() {
     Blumenau: 25,
   };
 
-  const filteredProducts = useMemo(() => {
-    const base =
-      selectedCategory === "Todos"
-        ? catalogProducts
-        : catalogProducts.filter((p) => p.category === selectedCategory);
+  const allProducts = useMemo(
+    () => sections.flatMap((section) => section.products),
+    [sections]
+  );
 
-    return [...base].sort((a, b) => {
-      const aBadge = a.badge ? 1 : 0;
-      const bBadge = b.badge ? 1 : 0;
-      return bBadge - aBadge;
-    });
-  }, [selectedCategory]);
+  const filteredSections = useMemo(() => {
+    if (selectedCategory === "Todos") return sections;
+
+    return sections.filter((section) => section.title === selectedCategory);
+  }, [selectedCategory, sections]);
 
   const formatBRL = (value) =>
     value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
@@ -470,7 +529,7 @@ export default function PascoaPropositoLoveSugarLanding() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#destaques"
+                href="#queridinhos"
                 className="inline-flex items-center justify-center rounded-full bg-[#231f20] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5"
               >
                 Quero garantir minha caixa
@@ -498,187 +557,77 @@ export default function PascoaPropositoLoveSugarLanding() {
         </div>
       </section>
 
-      <section
-        id="destaques"
-        className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
-      >
-        <div className="mb-8 max-w-2xl">
-          <h2 className="text-4xl font-semibold tracking-tight">
-            Os Queridinhos da Páscoa
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[#6a6058]">
-            Os protagonistas da campanha, escolhidos para converter mais e
-            encantar logo no primeiro olhar.
-          </p>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          {easterFavorites.map((product, index) => (
-            <div
-              key={product.id}
-              className={`overflow-hidden rounded-[2rem] border bg-white ${
-                index === 0
-                  ? "border-[#231f20] shadow-[0_20px_60px_rgba(35,31,32,0.14)]"
-                  : "border-[#e2d7cd] shadow-sm"
-              }`}
-            >
-              <img
-                src={product.image}
-                alt={product.imageAlt}
-                className="h-72 w-full object-cover"
-              />
-              <div className="p-6">
-                <div className="mb-3 inline-flex rounded-full bg-[#f2ebe3] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7d6d61]">
-                  {product.badge}
-                </div>
-                <h3 className="text-2xl font-semibold leading-tight">
-                  {product.name}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#6d6158]">
-                  {product.description}
-                </p>
-                {product.includes && (
-                  <ul className="mt-5 space-y-2 text-sm text-[#514944]">
-                    {product.includes.map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <span>•</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="text-2xl font-semibold">
-                    {formatBRL(product.price)}
-                  </div>
-                  <button
-                    onClick={() => addToCart(product)}
-                    className="rounded-full bg-[#231f20] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-                  >
-                    Adicionar ao carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-4 sm:px-6 lg:px-8">
-        <div className="mb-8 max-w-2xl">
-          <h2 className="text-4xl font-semibold tracking-tight">
-            Novidades Love Sugar
-          </h2>
-          <p className="mt-4 text-base leading-7 text-[#6a6058]">
-            Três novidades com alto potencial de impulso, presente e complemento
-            de compra.
-          </p>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          {noveltyProducts.map((product) => (
-            <div
-              key={product.id}
-              className="overflow-hidden rounded-[2rem] border border-[#e2d7cd] bg-white shadow-sm"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-72 w-full object-cover"
-              />
-              <div className="p-6">
-                <div className="mb-3 inline-flex rounded-full bg-[#f2ebe3] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7d6d61]">
-                  {product.badge}
-                </div>
-                <h3 className="text-2xl font-semibold leading-tight">
-                  {product.name}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-[#6d6158]">
-                  {product.description}
-                </p>
-                <div className="mt-6 flex items-center justify-between">
-                  <div className="text-2xl font-semibold">
-                    {formatBRL(product.price)}
-                  </div>
-                  <button
-                    onClick={() => addToCart(product)}
-                    className="rounded-full bg-[#231f20] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
-                  >
-                    Adicionar ao carrinho
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="catalogo" className="border-y border-[#eadfd5] bg-[#fcfaf7]">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+      {filteredSections.map((section) => (
+        <section
+          key={section.id}
+          id={section.id}
+          className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8"
+        >
           <div className="mb-8 max-w-2xl">
             <h2 className="text-4xl font-semibold tracking-tight">
-              Catálogo Love Sugar
+              {section.title}
             </h2>
-            <p className="mt-4 text-base leading-7 text-[#6c6057]">
-              Navegação elegante, organizada por categorias, com botão direto de
-              compra para reduzir fricção e acelerar o fechamento.
+            <p className="mt-4 text-base leading-7 text-[#6a6058]">
+              {section.description}
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-            {filteredProducts.map((product) => (
+          <div className="grid gap-6 lg:grid-cols-3 xl:grid-cols-4">
+            {section.products.map((product, index) => (
               <div
-                key={product.name}
-                className="overflow-hidden rounded-[1.8rem] border border-[#e5dbd1] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-lg"
+                key={product.id || product.name}
+                className={`overflow-hidden rounded-[2rem] border bg-white ${
+                  index === 0 && section.id === "queridinhos"
+                    ? "border-[#231f20] shadow-[0_20px_60px_rgba(35,31,32,0.14)]"
+                    : "border-[#e2d7cd] shadow-sm"
+                }`}
               >
                 <img
-                  src={product.image || "/box-pascoa.png"}
-                  alt={product.name}
-                  className="h-48 w-full object-cover"
+                  src={product.image}
+                  alt={product.imageAlt || product.name}
+                  className="h-72 w-full object-cover"
                 />
-                <div className="p-5">
-                  <div className="text-[11px] uppercase tracking-[0.28em] text-[#8a7a70]">
-                    {product.category}
-                  </div>
-                  <div className="mt-2 flex items-start justify-between gap-3">
-                    <div className="text-xl font-semibold leading-tight">
-                      {product.name}
+                <div className="p-6">
+                  {product.badge && (
+                    <div className="mb-3 inline-flex rounded-full bg-[#f2ebe3] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.28em] text-[#7d6d61]">
+                      {product.badge}
                     </div>
-                    {product.badge && (
-                      <div className="rounded-full bg-[#f2ebe3] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-[#7d6d61]">
-                        {product.badge}
-                      </div>
-                    )}
-                  </div>
+                  )}
+                  <h3 className="text-2xl font-semibold leading-tight">
+                    {product.name}
+                  </h3>
                   <p className="mt-3 text-sm leading-6 text-[#6d6158]">
                     {product.description}
                   </p>
-                  <div className="mt-3 text-lg font-medium text-[#5b4f49]">
-                    {formatBRL(product.price)}
-                  </div>
-                  <div className="mt-5 flex gap-3">
+
+                  {product.includes && (
+                    <ul className="mt-5 space-y-2 text-sm text-[#514944]">
+                      {product.includes.map((item) => (
+                        <li key={item} className="flex gap-2">
+                          <span>•</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="mt-6 flex items-center justify-between">
+                    <div className="text-2xl font-semibold">
+                      {formatBRL(product.price)}
+                    </div>
                     <button
                       onClick={() => addToCart(product)}
-                      className="flex-1 rounded-full bg-[#231f20] px-4 py-3 text-sm font-semibold text-white transition hover:opacity-90"
+                      className="rounded-full bg-[#231f20] px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90"
                     >
-                      Comprar
-                    </button>
-                    <button
-                      onClick={() => {
-                        addToCart(product);
-                        setCartOpen(true);
-                      }}
-                      className="rounded-full border border-[#d8cec4] px-4 py-3 text-sm font-semibold text-[#231f20] transition hover:bg-[#f3ede6]"
-                    >
-                      Ver carrinho
+                      Adicionar ao carrinho
                     </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <footer className="border-t border-[#eadfd5] bg-white">
         <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
