@@ -5,7 +5,7 @@ import React, { useMemo, useState } from "react";
 export default function PascoaPropositoLoveSugarLanding() {
   const WHATSAPP_NUMBER = "554721257550";
 
-  const heroImage = "/naked-pascoa.jpg";
+  const heroImage = "/hero-pascoa.jpg";
 
   const easterFavorites = [
     {
