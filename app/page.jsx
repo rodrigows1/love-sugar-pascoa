@@ -4,6 +4,7 @@ import React, { useMemo, useState } from "react";
 
 export default function PascoaPropositoLoveSugarLanding() {
   const WHATSAPP_NUMBER = "554721257550";
+  const FIXED_DATE_SPECIAL_CITIES = "2026-04-02";
 
   const heroImage = "/naked-pascoa.jpg";
 
@@ -12,7 +13,7 @@ export default function PascoaPropositoLoveSugarLanding() {
       id: "queridinhos",
       title: "Os Queridinhos da Páscoa",
       description:
-        "Os protagonistas da campanha, escolhidos para converter mais e encantar logo no primeiro olhar.",
+        "Nossos clássicos de Páscoa! Uma curadoria especial com os favoritos da casa e as escolhas da Ju pra você acertar sem erro nesta Páscoa.",
       products: [
         {
           id: "box-proposito",
@@ -57,7 +58,7 @@ export default function PascoaPropositoLoveSugarLanding() {
       id: "novidades",
       title: "Novidades Love Sugar",
       description:
-        "Três novidades com alto potencial de impulso, presente e complemento de compra.",
+        "Três novidades Love Sugar com texturas e sabores irresistíveis.",
       products: [
         {
           id: "croc-croc",
@@ -161,8 +162,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           id: "petit-four",
           name: "Petit Four Baunilha",
           price: 38.9,
-          description:
-            "Biscoito leve, amanteigado e delicadamente aromático.",
+          description: "Biscoito leve, amanteigado e delicadamente aromático.",
           image: "/petit-four.jpg",
           imageAlt: "Petit Four Baunilha",
         },
@@ -367,6 +367,9 @@ export default function PascoaPropositoLoveSugarLanding() {
     Blumenau: 25,
   };
 
+  const formatBRL = (value) =>
+    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+
   const allProducts = useMemo(
     () => sections.flatMap((section) => section.products),
     [sections]
@@ -374,12 +377,8 @@ export default function PascoaPropositoLoveSugarLanding() {
 
   const filteredSections = useMemo(() => {
     if (selectedCategory === "Todos") return sections;
-
     return sections.filter((section) => section.title === selectedCategory);
   }, [selectedCategory, sections]);
-
-  const formatBRL = (value) =>
-    value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
   const addToCart = (product) => {
     setCart((prev) => {
@@ -413,23 +412,18 @@ export default function PascoaPropositoLoveSugarLanding() {
 
   const discount = subtotal >= 500 ? subtotal * 0.1 : 0;
   const discountedSubtotal = subtotal - discount;
-
   const deliveryFee =
     customer.fulfillment === "pickup"
       ? 0
       : deliveryOptions[customer.city] ?? 0;
-
   const total = discountedSubtotal + deliveryFee;
+  const progressToDiscount = Math.min((subtotal / 500) * 100, 100);
 
-  const minDate =
-    customer.city === "Blumenau" || customer.city === "Florianópolis"
-      ? "2026-04-02"
-      : "2026-03-24";
+  const isSpecialCity =
+    customer.city === "Blumenau" || customer.city === "Florianópolis";
 
-  const maxDate =
-    customer.city === "Blumenau" || customer.city === "Florianópolis"
-      ? "2026-04-02"
-      : "2026-04-05";
+  const minDate = isSpecialCity ? FIXED_DATE_SPECIAL_CITIES : "2026-03-24";
+  const maxDate = isSpecialCity ? FIXED_DATE_SPECIAL_CITIES : "2026-04-05";
 
   const suggestedUpsells = useMemo(() => {
     const currentNames = new Set(cart.map((item) => item.name));
@@ -527,13 +521,7 @@ export default function PascoaPropositoLoveSugarLanding() {
               Escolha seu presente, personalize sua mensagem e finalize pelo
               WhatsApp com poucos toques.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="#queridinhos"
-                className="inline-flex items-center justify-center rounded-full bg-[#231f20] px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-black/10 transition hover:-translate-y-0.5"
-              >
-                Quero garantir minha caixa
-              </a>
+            <div className="mt-8">
               <a
                 href="/catalogo_pascoa26LS.pdf"
                 target="_blank"
@@ -611,7 +599,7 @@ export default function PascoaPropositoLoveSugarLanding() {
                     </ul>
                   )}
 
-                  <div className="mt-6 flex items-center justify-between">
+                  <div className="mt-8 flex items-end justify-between gap-4 border-t border-[#eee4db] pt-5">
                     <div className="text-2xl font-semibold">
                       {formatBRL(product.price)}
                     </div>
@@ -665,6 +653,18 @@ export default function PascoaPropositoLoveSugarLanding() {
           </div>
         </div>
       </footer>
+
+      <a
+        href={`https://wa.me/${WHATSAPP_NUMBER}?text=Olá! Quero atendimento da Páscoa de Propósito Love Sugar.`}
+        target="_blank"
+        rel="noreferrer"
+        className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-3 rounded-full bg-[#231f20] px-5 py-4 text-sm font-semibold text-white shadow-[0_16px_40px_rgba(35,31,32,0.25)] transition hover:-translate-y-0.5 hover:opacity-95"
+      >
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/12 text-lg">
+          ✆
+        </span>
+        <span className="hidden sm:inline">Falar no WhatsApp</span>
+      </a>
 
       {cartOpen && (
         <div className="fixed inset-0 z-50 flex justify-end bg-black/35 backdrop-blur-sm">
@@ -838,7 +838,7 @@ export default function PascoaPropositoLoveSugarLanding() {
                             date:
                               e.target.value === "Blumenau" ||
                               e.target.value === "Florianópolis"
-                                ? "2026-04-02"
+                                ? FIXED_DATE_SPECIAL_CITIES
                                 : customer.date,
                           })
                         }
@@ -881,10 +881,15 @@ export default function PascoaPropositoLoveSugarLanding() {
                     value={customer.date}
                     min={minDate}
                     max={maxDate}
+                    disabled={isSpecialCity && customer.fulfillment === "delivery"}
                     onChange={(e) =>
                       setCustomer({ ...customer, date: e.target.value })
                     }
-                    className="w-full rounded-[1rem] border border-[#d8cec4] px-4 py-3 outline-none transition focus:border-[#231f20] text-[#231f20]"
+                    className={`w-full rounded-[1rem] border border-[#d8cec4] px-4 py-3 outline-none transition focus:border-[#231f20] text-[#231f20] ${
+                      isSpecialCity && customer.fulfillment === "delivery"
+                        ? "cursor-not-allowed bg-[#f0ebe5] text-[#8a7f77]"
+                        : ""
+                    }`}
                   />
 
                   <label className="flex items-center gap-3 text-sm font-medium text-[#5f554e]">
@@ -922,7 +927,7 @@ export default function PascoaPropositoLoveSugarLanding() {
             </div>
 
             <div className="border-t border-[#e6dcd3] bg-white px-5 py-5">
-              <div className="space-y-2 text-sm text-[#544a45]">
+              <div className="space-y-3 text-sm text-[#544a45]">
                 {subtotal < 500 ? (
                   <div className="rounded-[1rem] border border-[#e6d8c8] bg-[#fff8ef] px-4 py-3 text-sm leading-6 text-[#6b5849]">
                     Faltam <strong>{formatBRL(500 - subtotal)}</strong> para
@@ -934,16 +939,40 @@ export default function PascoaPropositoLoveSugarLanding() {
                     <strong>10% de desconto</strong> por atingir R$ 500.
                   </div>
                 )}
+
+                <div>
+                  <div className="mb-2 flex items-center justify-between text-[11px] font-medium uppercase tracking-[0.16em] text-[#8b7b6f]">
+                    <span>Progresso do desconto</span>
+                    <span>{Math.round(progressToDiscount)}%</span>
+                  </div>
+
+                  <div className="h-3 overflow-hidden rounded-full bg-[#efe6dc]">
+                    <div
+                      className={`h-full rounded-full transition-all duration-500 ${
+                        subtotal >= 500 ? "bg-[#6f8b61]" : "bg-[#231f20]"
+                      }`}
+                      style={{ width: `${progressToDiscount}%` }}
+                    />
+                  </div>
+
+                  <div className="mt-2 flex items-center justify-between text-xs text-[#8b7b6f]">
+                    <span>{formatBRL(subtotal)}</span>
+                    <span>Meta {formatBRL(500)}</span>
+                  </div>
+                </div>
+
                 <div className="flex items-center justify-between">
                   <span>Subtotal</span>
                   <span>{formatBRL(subtotal)}</span>
                 </div>
+
                 {discount > 0 && (
                   <div className="flex items-center justify-between text-[#46603f]">
                     <span>Desconto 10%</span>
                     <span>- {formatBRL(discount)}</span>
                   </div>
                 )}
+
                 <div className="flex items-center justify-between">
                   <span>
                     {customer.fulfillment === "pickup" ? "Retirada" : "Entrega"}
@@ -956,6 +985,7 @@ export default function PascoaPropositoLoveSugarLanding() {
                       : formatBRL(deliveryFee)}
                   </span>
                 </div>
+
                 <div className="flex items-center justify-between border-t border-[#eee4db] pt-3 text-base font-semibold text-[#231f20]">
                   <span>Total</span>
                   <span>{formatBRL(total)}</span>
