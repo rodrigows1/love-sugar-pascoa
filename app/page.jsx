@@ -28,7 +28,7 @@ export default function PascoaPropositoLoveSugarLanding() {
             "01 Toffee Caramel",
             "01 Croc-Croc Love Sugar de amendoim caramelizado com açúcar mascavo",
             "01 Brownie Funcional",
-            "As primeiras 100 caixas concorrerão a um evengelho (Mateus, Marocs, Lucas e João)"
+            "As <b>primeiras 100 caixas concorrerão a um evengelho</b> (Mateus, Marcos, Lucas ou João)"
           ],
           image: "/box-pascoa.jpg",
           imageAlt: "Box Páscoa de Propósito Love Sugar",
@@ -190,7 +190,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           name: "Crocante de Amendoim",
           price: 38.9,
           description:
-            "Crocância marcante e sabor envolvente para pequenos momentos especiais.",
+            "Crocância marcante e sabor envolvente de creme de avelã.",
           image: "/crocante-avela.jpg",
           imageAlt: "Crocante de Amendoim",
         },
@@ -276,7 +276,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 48.9,
           badge: "Sem Açúcar",
           description:
-            "Chocolate com sabor intenso e sofisticado para quem busca equilíbrio.",
+            "Chocolate com sabor intenso e sofisticado para quem busca equilíbrio.<br>Sem glúten, sem lactose, adoçado com stévia.",
           image: "/chocolates_semacucar.jpg",
           imageAlt: "Chocolate 45%",
         },
@@ -286,7 +286,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 48.9,
           badge: "Sem Açúcar",
           description:
-            "Chocolate vegano 70% cacau com personalidade e profundidade.",
+            "Chocolate vegano 70% cacau com personalidade e profundidade.<br>Sem glúten, sem derivados do leite, adoçado com stévia.",
           image: "/chocolates_semacucar.jpg",
           imageAlt: "Chocolate Vegano 70%",
         },
@@ -296,7 +296,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 50.9,
           badge: "Sem Açúcar",
           description:
-            "Versão vegana delicada e surpreendente, com leite de côco.",
+            "Surpreendemente macio, que derrete na boca.Chocolate ao leite de côco.<br>Sem glúten, sem derivados do leite, adoçado com stévia.",
           image: "/chocolates_semacucar.jpg",
           imageAlt: "Chocolate Branco Vegano ao leite de côco",
         },
@@ -306,7 +306,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 50.9,
           badge: "Sem Açúcar",
           description:
-            "Drágeas veganas com cranberry e chocolate 70%, intensas e elegantes.",
+            "Viciantes! Drágeas veganas com cranberry e chocolate 70%, intensas e elegantes.<br>Sem glúten, sem derivados do leite, adoçado com stévia.",
           image: "/chocolates_semacucar.jpg",
           imageAlt: "Drágeas Veganas 70% com Cranberry",
         },
