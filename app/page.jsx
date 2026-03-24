@@ -13,7 +13,7 @@ export default function PascoaPropositoLoveSugarLanding() {
       id: "queridinhos",
       title: "Os Queridinhos da Páscoa",
       description:
-        "Nossos clássicos de Páscoa! Uma curadoria especial com os favoritos da casa e as escolhas da Ju pra você acertar sem erro nesta Páscoa.",
+        "Nossos clássicos de Páscoa! Uma curadoria especial com os favoritos da casa e as escolhas da Ju pra você acertar em cheio nesta Páscoa.",
       products: [
         {
           id: "box-proposito",
@@ -28,6 +28,7 @@ export default function PascoaPropositoLoveSugarLanding() {
             "01 Toffee Caramel",
             "01 Croc-Croc Love Sugar de amendoim caramelizado com açúcar mascavo",
             "01 Brownie Funcional",
+            "As primeiras 100 caixas concorrerão a um evengelho (Mateus, Marocs, Lucas e João)"
           ],
           image: "/box-pascoa.jpg",
           imageAlt: "Box Páscoa de Propósito Love Sugar",
@@ -333,12 +334,6 @@ export default function PascoaPropositoLoveSugarLanding() {
         "Acrescente um crocante de mascavo irresistível à sua Páscoa.",
     },
     {
-      id: "upsell-bocadito",
-      name: "Bocadito Doce de Leite",
-      price: 11.9,
-      reason: "Um mimo delicado para completar o presente.",
-    },
-    {
       id: "upsell-toffee",
       name: "Toffee Caramel",
       price: 16.9,
@@ -512,14 +507,15 @@ export default function PascoaPropositoLoveSugarLanding() {
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8 lg:py-20">
           <div className="relative z-10 flex flex-col justify-center">
             <div className="mb-5 inline-flex w-fit rounded-full border border-[#d6c9b7] bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[#8b7768] shadow-sm">
-              Edição limitada de Páscoa
+              Páscoa de Propósito
             </div>
             <h1 className="max-w-3xl text-5xl font-semibold leading-[0.96] tracking-tight sm:text-6xl lg:text-7xl">
               Uma Páscoa para lembrar e viver o propósito.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#655b54]">
-              Escolha seu presente, personalize sua mensagem e finalize pelo
-              WhatsApp com poucos toques.
+              Escolha suas delícia, defina entrega ou retirada em nosso Empório e finalize pelo
+              WhatsApp com poucos toques. 
+              Você pode também presentear com nossa Box Páscoa de Propósito ou personalizar com os mimos que desejar.
             </p>
             <div className="mt-8">
               <a
