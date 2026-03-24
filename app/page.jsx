@@ -39,7 +39,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 134,
           badge: "Queridinho da Páscoa",
           description:
-            "Camadas macias, recheio cremoso e um sabor simplesmente inesquecível.",
+            "Massa fofinha de Pão de Mel com recheio cremoso de doce de leite.",
           image: "/naked-pascoa.jpg",
           imageAlt: "Naked Cake Love Sugar",
         },
@@ -49,7 +49,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 170,
           badge: "Sobremesa Memorável",
           description:
-            "Camadas de massa de pão de mel macia e aromática, doce de leite cremoso e pedacinhos de chocolate.",
+            "Massa de Pão de Mel intercalada com doce de leite,  calada de chocolate meio amargo e pedacinhos de chocolate.",
           image: "/taca-sobremesa.jpg",
           imageAlt: "Pão de Mel na Taça Love Sugar",
         },
@@ -85,9 +85,9 @@ export default function PascoaPropositoLoveSugarLanding() {
           id: "toffee",
           name: "Toffee Caramel",
           price: 16.9,
-          badge: "Queridinho",
+          badge: "Surpreendente",
           description:
-            "Base macia, recheio cremoso e intenso de caramelo, finalizado com chocolate.",
+            "Base macia, caramelo cremoso caseiro e cobertura de chocolate meio amargo",
           image: "/toffee-caramel.jpg",
           imageAlt: "Toffee Caramel",
         },
@@ -121,7 +121,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           name: "Bolinho de Pão de Mel Desconstruído",
           price: 34.9,
           description:
-            "Massa de pão de mel com recheio de doce de leite e calda de chocolate belga.",
+            "Uma camada de massa fofinha de Pão de Mel, uma camada de pedacinhos de chocolate meio amargo e cobertura de Doce de leite.",
           image: "/bolinho-desconstruido.jpg",
           imageAlt: "Bolinho de Pão de Mel Desconstruído",
         },
@@ -147,7 +147,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           name: "Colomba de Nozes",
           price: 99,
           description:
-            "Massa macia, recheio cremoso e pedaços selecionados de nozes.",
+            "Massa macia de Pão de Mel, recheio de strogonoff de nozes.",
           image: "/colomba-nozes.jpg",
           imageAlt: "Colomba de Nozes",
         },
@@ -157,7 +157,7 @@ export default function PascoaPropositoLoveSugarLanding() {
       id: "pacotinhos",
       title: "Nossos Pacotinhos",
       description:
-        "Mimos perfeitos para presentear, complementar pedidos e adoçar pequenos momentos.",
+        "Mimos perfeitos para presentear ou para acompanhar um bom cafezinho.",
       products: [
         {
           id: "petit-four",
@@ -172,7 +172,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           name: "Ten Bites",
           price: 38.9,
           description:
-            "Pequenos pedaços de pão de mel mergulhados em chocolate.",
+            "Pequenos pedaços de pão de mel, sem recheio, mergulhados em chocolate.",
           image: "/bites-pao-mel.jpg",
           imageAlt: "Ten Bites",
         },
@@ -191,7 +191,7 @@ export default function PascoaPropositoLoveSugarLanding() {
           price: 38.9,
           description:
             "Crocância marcante e sabor envolvente para pequenos momentos especiais.",
-          image: "/croc-croc.jpg",
+          image: "/crocante-avela.jpg",
           imageAlt: "Crocante de Amendoim",
         },
       ],
